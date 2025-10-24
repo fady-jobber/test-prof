@@ -2,6 +2,8 @@
 
 ## master (unreleased)
 
+- Replace deprecated `ActiveRecord::Base.connection` with `lease_connection` for Rails 7.2+ compatibility. ([@fady-a][])
+
 ## 1.4.5. (2025-05-09) 🎇
 
 - FactoryProf: Add truncate_names configuration parameter. ([@skaestle][])
@@ -470,3 +472,4 @@ See [changelog](https://github.com/test-prof/test-prof/blob/v0.8.0/CHANGELOG.md)
 [@john-h-k]: https://github.com/john-h-k
 [@devinburnette]: https://github.com/devinburnette
 [@elasticspoon]: https://github.com/elasticspoon
+[@fady-a]: https://github.com/fady-a

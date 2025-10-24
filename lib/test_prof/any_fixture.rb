@@ -159,7 +159,7 @@ module TestProf
       def clean
         disable_referential_integrity do
           tables_cache.keys.reverse_each do |table|
-            ActiveRecord::Base.connection.execute %(
+            ActiveRecord::Base.lease_connection.execute %(
               DELETE FROM #{table}
             )
           end
@@ -273,7 +273,7 @@ module TestProf
       end
 
       def disable_referential_integrity
-        connection = ActiveRecord::Base.connection
+        connection = ActiveRecord::Base.lease_connection
         return yield unless connection.respond_to?(:disable_referential_integrity)
         connection.disable_referential_integrity { yield }
       end
